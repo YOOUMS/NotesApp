@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:notes/AddNoteWidget.dart';
+import 'package:notes/DrawerWidget.dart';
 import 'package:notes/NoteWidget.dart';
 import 'package:notes/model/dummy_data.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return Scaffold(
+        drawer: DrawerWidget(),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Color.fromARGB(255, 31, 26, 56),
           onPressed: () {

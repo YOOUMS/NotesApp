@@ -64,55 +64,57 @@ class AddNoteWidget extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      content: Container(
-        // height: (MediaQuery.of(context).size.height / 4) + 13,
-        height: MediaQuery.of(context).size.height / 3 + 79,
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.height / 25),
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 234, 215, 209),
-                  borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                    hintText: "Title", border: InputBorder.none),
+      content: Expanded(
+        child: Container(
+          // height: (MediaQuery.of(context).size.height / 4) + 13,
+          height: MediaQuery.of(context).size.height / 3 + 79,
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height / 25),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 234, 215, 209),
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                      hintText: "Title", border: InputBorder.none),
+                ),
               ),
-            ),
-            Container(
-              // margin: EdgeInsets.only(
-              //     bottom: MediaQuery.of(context).size.height / 25),
-              height: MediaQuery.of(context).size.height / 3,
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 234, 215, 209),
-                  borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                textAlign: TextAlign.center,
-                decoration:
-                    InputDecoration(hintText: "Text", border: InputBorder.none),
+              Container(
+                // margin: EdgeInsets.only(
+                //     bottom: MediaQuery.of(context).size.height / 25),
+                height: MediaQuery.of(context).size.height / 3,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 234, 215, 209),
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                      hintText: "Text", border: InputBorder.none),
+                ),
               ),
-            ),
-            // Container(
-            //   decoration: BoxDecoration(
-            //       color: Color.fromARGB(255, 234, 215, 209),
-            //       borderRadius: BorderRadius.circular(10)),
-            //   width: double.infinity,
-            //   child: DropdownButton<String>(
-            //     value: SeletedItem,
-            //     items: items
-            //         ?.map((item) => DropdownMenuItem<String>(
-            //             value: item, child: Text(item ?? "others")))
-            //         .toList(),
-            //    onChanged: (String? newValue) {
-            //     setState(() {
-            //       SeletedItem = newValue!;
-            //     });
-            //   },
-            //   ),
-            // )
-          ],
+              // Container(
+              //   decoration: BoxDecoration(
+              //       color: Color.fromARGB(255, 234, 215, 209),
+              //       borderRadius: BorderRadius.circular(10)),
+              //   width: double.infinity,
+              //   child: DropdownButton<String>(
+              //     value: SeletedItem,
+              //     items: items
+              //         ?.map((item) => DropdownMenuItem<String>(
+              //             value: item, child: Text(item ?? "others")))
+              //         .toList(),
+              //    onChanged: (String? newValue) {
+              //     setState(() {
+              //       SeletedItem = newValue!;
+              //     });
+              //   },
+              //   ),
+              // )
+            ],
+          ),
         ),
       ),
     );
