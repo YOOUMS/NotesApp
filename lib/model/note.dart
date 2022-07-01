@@ -4,9 +4,10 @@ class Note {
   String? title;
   String? text;
   String? role;
-  Note(Map Notes) {
+  Note.fromJson(Map Notes) {
     this.title = Notes['title'];
     this.text = Notes['text'];
     this.role = Notes['role'];
   }
+  Note(this.title, this.text, this.role);
 }

@@ -5,14 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:notes/model/dummy_data.dart';
+import 'package:notes/model/note.dart';
+import 'package:notes/Helpers/NoteFunctions.dart';
 
 class AddNoteWidget extends StatelessWidget {
+  final titleController = TextEditingController();
+  final textController = TextEditingController();
+  final roleController = TextEditingController();
+
   List<String?>? items;
   String? SeletedItem;
-  AddNoteWidget() {
-    this.SeletedItem = (Notes.map((e) => e.role)).toList()[0] ?? "Others";
-    this.items = Notes.map((e) => e.role).toList();
-  }
+  AddNoteWidget() {}
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -28,7 +31,8 @@ class AddNoteWidget extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.green, borderRadius: BorderRadius.circular(10)),
               child: FlatButton(
-                onPressed: null,
+                onPressed: () => NoteMethods.AddNote(titleController.text,
+                    textController.text, roleController.text),
                 child: Text(
                   "Add",
                   style: TextStyle(
@@ -67,7 +71,7 @@ class AddNoteWidget extends StatelessWidget {
       content: Expanded(
         child: Container(
           // height: (MediaQuery.of(context).size.height / 4) + 13,
-          height: MediaQuery.of(context).size.height / 3 + 79,
+          // height: MediaQuery.of(context).size.height / 3 + 79,
           child: Column(
             children: [
               Container(
@@ -77,9 +81,23 @@ class AddNoteWidget extends StatelessWidget {
                     color: Color.fromARGB(255, 234, 215, 209),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
+                  controller: titleController,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                       hintText: "Title", border: InputBorder.none),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height / 25),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 234, 215, 209),
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  controller: roleController,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                      hintText: "Role", border: InputBorder.none),
                 ),
               ),
               Container(
@@ -90,11 +108,13 @@ class AddNoteWidget extends StatelessWidget {
                     color: Color.fromARGB(255, 234, 215, 209),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
+                  controller: textController,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                       hintText: "Text", border: InputBorder.none),
                 ),
               ),
+
               // Container(
               //   decoration: BoxDecoration(
               //       color: Color.fromARGB(255, 234, 215, 209),
