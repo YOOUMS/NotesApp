@@ -66,7 +66,7 @@ class AddNoteWidget extends StatelessWidget {
       ),
       content: Container(
         // height: (MediaQuery.of(context).size.height / 4) + 13,
-        height: MediaQuery.of(context).size.height / 7 + 17,
+        height: MediaQuery.of(context).size.height / 3 + 79,
         child: Column(
           children: [
             Container(
@@ -84,6 +84,7 @@ class AddNoteWidget extends StatelessWidget {
             Container(
               // margin: EdgeInsets.only(
               //     bottom: MediaQuery.of(context).size.height / 25),
+              height: MediaQuery.of(context).size.height / 3,
               decoration: BoxDecoration(
                   color: Color.fromARGB(255, 234, 215, 209),
                   borderRadius: BorderRadius.circular(10)),

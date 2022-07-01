@@ -8,15 +8,21 @@ class NoteWidget extends StatelessWidget {
   String? title;
   String? text;
   String? role;
+  int? heightScale;
   NoteWidget(Note note) {
     this.title = note.title;
     this.text = note.text;
     this.role = note.role;
   }
   Widget build(BuildContext context) {
+    if (MediaQuery.of(context).orientation == Orientation.portrait)
+      heightScale = 5;
+    else {
+      heightScale = 2;
+    }
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height / 5,
+      height: MediaQuery.of(context).size.height / heightScale!,
       margin: EdgeInsets.all(15),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
